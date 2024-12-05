@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-padding: 20; -fx-background-color: #ecf0f1; -fx-border-radius: 15; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, #7f8c8d, 10, 0, 2, 2);" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.market.newmarketapp.userScenes.PaymentModalController">
+
+    <!-- Top section: Payment Method Choice -->
+    <top>
+        <HBox alignment="CENTER" prefHeight="26.0" prefWidth="558.0" spacing="20" style="-fx-background-color: #3498db; -fx-padding: 10 20; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, #2980b9, 8, 0, 0, 4);">
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;" text="Scegli il metodo di pagamento:" />
+            <ChoiceBox fx:id="paymentTypeChoiceBox" prefWidth="200.0" style="-fx-font-size: 14px; -fx-background-color: white; -fx-border-color: #2980b9; -fx-border-radius: 5; -fx-padding: 5; -fx-focus-color: #3498db; -fx-hover-color: #3498db;" />
+        </HBox>
+    </top>
+
+    <!-- Center section: Dynamic fields based on chosen payment method -->
+    <center>
+        <VBox fx:id="dynamicFieldsContainer" alignment="CENTER" prefHeight="226.0" prefWidth="552.0" spacing="20" style="-fx-padding: 20; -fx-background-color: white; -fx-border-color: #dfe4ea; -fx-border-radius: 10; -fx-background-radius: 10; -fx-spacing: 20; -fx-effect: dropshadow(gaussian, #bdc3c7, 10, 0, 0, 5);">
+            <!-- Dynamic fields will be populated here based on the payment method -->
+        </VBox>
+    </center>
+
+    <!-- Bottom section: Pay Button -->
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="51.0" prefWidth="559.0" spacing="20">
+            <Button fx:id="payButton" onAction="#handlePayButton" prefHeight="0.0" prefWidth="70.0" styleClass="primary-button" text="Paga">
+            </Button>
+        </HBox>
+    </bottom>
+</BorderPane>

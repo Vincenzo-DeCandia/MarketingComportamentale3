@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.market.newmarketapp.adminScenes.ProductModalController" spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+    <Label text="Gestione Prodotto" style="-fx-font-size: 16; -fx-font-weight: bold;" />
+    <TextField fx:id="productNameTextField" promptText="Nome Prodotto" />
+    <TextField fx:id="productPriceTextField" promptText="Prezzo Prodotto" />
+    <TextField fx:id="productQuantityTextField" promptText="Quantità Prodotto" />
+    <TextField fx:id="productCategoryTextField" promptText="Categoria Prodotto" />
+    <TextField fx:id="productCodeTextField" promptText="Codice Prodotto" />
+    <TextArea fx:id="productDescriptionTextArea" promptText="Descrizione Prodotto" />
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Salva" onAction="#handleSaveButton" />
+        <Button text="Chiudi" onAction="#closeModal" />
+    </HBox>
+</VBox>
+

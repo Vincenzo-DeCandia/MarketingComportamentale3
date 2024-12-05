@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="796eb005-8d42-45dd-bb61-dda88c363e5c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/authentication/AuthCOR.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/authentication/chainofresponsibility/concretehandler/SaveSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/authentication/chainofresponsibility/concretehandler/ValidateUserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/authentication/chainofresponsibility/handler/AuthHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/database/DatabaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/database/QueryExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/database/TransactionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/database/facade/MySqlDatabaseFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/database/mysql/MySqlDatabaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/database/mysql/MySqlQueryExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/database/mysql/MySqlTransactionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/datastorage/DataStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/datastorage/SessionDataStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/entity/Offer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/entity/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/entity/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/entity/ShoppingCart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/exception/ExceptionScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/marketing/patternobserver/observed/OfferManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/marketing/patternobserver/observer/EmailNotificationObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/marketing/patternobserver/observer/OfferObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/marketing/patternobserver/observer/TransactionOffer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/marketing/strategyanalysis/BehaviorAnalyzer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/marketing/strategyanalysis/strategies/BehaviorAnalysisStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/marketing/strategyanalysis/strategies/TfIdfAnalysisStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/MarketApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/ProfileBaseUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/RegisterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/WelcomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/adminScenes/AdminDashboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/adminScenes/AnalyzeUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/adminScenes/OfferModalController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/adminScenes/ProductManagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/adminScenes/ProductModalController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/managerscene/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/managerscene/SceneManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/userScenes/HomeUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/userScenes/OrderListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/userScenes/PaymentModalController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/newmarketapp/userScenes/ShoppingCartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/payment/factorymethod/BancomatCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/payment/factorymethod/CashCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/payment/factorymethod/CreditCardCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/payment/factorymethod/PaymentMethodCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/payment/paymentmethod/BancomatMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/payment/paymentmethod/CashMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/payment/paymentmethod/CreditCardMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/payment/paymentmethod/PaymentMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/repository/IBaseUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/repository/IOfferRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/repository/IOrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/repository/IRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/repository/IUserAnalyzeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/repository/MySqlRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/repository/concreteRepository/AdminRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/repository/concreteRepository/OfferRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/repository/concreteRepository/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/repository/concreteRepository/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/repository/concreteRepository/ShoppingCartRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/repository/concreteRepository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/service/IOfferService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/service/IPaymentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/service/IUserAnalysisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/service/OfferService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/service/PaymentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/service/UserAnalysisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/user/BaseUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/user/concreteuser/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/user/concreteuser/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/market/user/singletonloggeduser/LoggedUserSingleton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/admin-dashboard-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/css/dashboard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/icon-app.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/login-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/market-analysis-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/modal-offer-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/modal-payment-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/modal-product-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/order-list-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/product-management-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/profile-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/register-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/session.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/shopping-cart-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/user-home-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/user-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp/welcome-view.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="CSS File" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2ojzyXdqN1uMo5FLH1se2tmnWbO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MarketApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/vincenzodecandia/IdeaProjects/NewMarketApp/src/main/java/com/market/newmarketapp",
+    "last_opened_file_path": "/Users/vincenzodecandia/IdeaProjects/NewMarketApp/src/main/java/com/market",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/market" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/market/newmarketapp" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.market.newmarketapp" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.market.datastorage" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="MarketingComportamentale3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="MarketingComportamentale3" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="796eb005-8d42-45dd-bb61-dda88c363e5c" name="Changes" comment="" />
+      <created>1731398029265</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731398029265</updated>
+      <workItem from="1731398030292" duration="1245000" />
+      <workItem from="1731410484846" duration="3056000" />
+      <workItem from="1731537922230" duration="329000" />
+      <workItem from="1731590582590" duration="640000" />
+      <workItem from="1731591229506" duration="184000" />
+      <workItem from="1731591419635" duration="9019000" />
+      <workItem from="1731600786688" duration="1544000" />
+      <workItem from="1731621279253" duration="1991000" />
+      <workItem from="1731703023668" duration="7588000" />
+      <workItem from="1731710830675" duration="2567000" />
+      <workItem from="1731715344517" duration="339000" />
+      <workItem from="1731743128543" duration="2920000" />
+      <workItem from="1731746397017" duration="483000" />
+      <workItem from="1731754065480" duration="12317000" />
+      <workItem from="1731769790902" duration="868000" />
+      <workItem from="1731882594722" duration="2325000" />
+      <workItem from="1731919087009" duration="7503000" />
+      <workItem from="1731942832103" duration="16759000" />
+      <workItem from="1731963978967" duration="1675000" />
+      <workItem from="1732003208001" duration="15928000" />
+      <workItem from="1732051419594" duration="3476000" />
+      <workItem from="1732091819402" duration="22871000" />
+      <workItem from="1732140497220" duration="2013000" />
+      <workItem from="1732142542147" duration="5026000" />
+      <workItem from="1732188576483" duration="17040000" />
+      <workItem from="1732226179532" duration="4176000" />
+      <workItem from="1732273250619" duration="18390000" />
+      <workItem from="1732312206459" duration="57000" />
+      <workItem from="1732312266120" duration="169000" />
+      <workItem from="1732351227426" duration="3135000" />
+      <workItem from="1732357195013" duration="437000" />
+      <workItem from="1732357928174" duration="736000" />
+      <workItem from="1732374390692" duration="1093000" />
+      <workItem from="1732440157038" duration="3882000" />
+      <workItem from="1732449674329" duration="8000" />
+      <workItem from="1732449761665" duration="772000" />
+      <workItem from="1732544496610" duration="10096000" />
+      <workItem from="1732558735861" duration="2882000" />
+      <workItem from="1732614440919" duration="3698000" />
+      <workItem from="1732620910426" duration="1712000" />
+      <workItem from="1732622630122" duration="13088000" />
+      <workItem from="1732697711862" duration="14924000" />
+      <workItem from="1732722462531" duration="2081000" />
+      <workItem from="1732731376761" duration="6599000" />
+      <workItem from="1732743048284" duration="3542000" />
+      <workItem from="1732782850413" duration="19173000" />
+      <workItem from="1732826836623" duration="5783000" />
+      <workItem from="1732832638403" duration="4002000" />
+      <workItem from="1732872875293" duration="16541000" />
+      <workItem from="1732892904075" duration="7119000" />
+      <workItem from="1732913603521" duration="12066000" />
+      <workItem from="1732958147891" duration="9506000" />
+      <workItem from="1732973017773" duration="1697000" />
+      <workItem from="1732999633794" duration="4693000" />
+      <workItem from="1733005228835" duration="156000" />
+      <workItem from="1733005387825" duration="2042000" />
+      <workItem from="1733045600317" duration="5545000" />
+      <workItem from="1733089959698" duration="7561000" />
+      <workItem from="1733129524457" duration="5629000" />
+      <workItem from="1733136428257" duration="10243000" />
+      <workItem from="1733232090817" duration="22962000" />
+      <workItem from="1733268162121" duration="267000" />
+      <workItem from="1733268688646" duration="3266000" />
+      <workItem from="1733272010590" duration="18000" />
+      <workItem from="1733313181821" duration="4231000" />
+      <workItem from="1733319532799" duration="8429000" />
+      <workItem from="1733330746237" duration="2967000" />
+      <workItem from="1733345552605" duration="5741000" />
+      <workItem from="1733353615169" duration="388000" />
+      <workItem from="1733387659245" duration="813000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

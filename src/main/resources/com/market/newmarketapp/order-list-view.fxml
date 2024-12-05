@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.market.newmarketapp.userScenes.OrderListController">
+   <left>
+      <VBox prefHeight="360.0" prefWidth="124.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onBackButton" styleClass="secondary-button" text="Indietro" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="360.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header-title" text="Ordini" textAlignment="CENTER" wrappingWidth="400.21630859375" />
+            <VBox prefHeight="19.0" prefWidth="401.0" />
+            <TableView fx:id="orderTableView" prefHeight="190.0" prefWidth="335.0">
+              <columns>
+                <TableColumn fx:id="orderIdColumn" prefWidth="42.0" text="Id" />
+                <TableColumn fx:id="orderDateColumn" prefWidth="78.0" text="Data" />
+                <TableColumn fx:id="orderStatusColumn" prefWidth="46.0" text="Stato" />
+                <TableColumn fx:id="orderPaymentMethodColumn" prefWidth="158.0" text="Metodo di pagamento" />
+                <TableColumn fx:id="orderTotalColumn" prefWidth="74.5" text="Totale" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox prefHeight="360.0" prefWidth="115.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <Button mnemonicParsing="false" styleClass="primary-button" text="Ricarica" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

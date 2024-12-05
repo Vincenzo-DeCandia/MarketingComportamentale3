@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="597.0" prefWidth="630.0" style="-fx-background-color: #f7f9fc;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.market.newmarketapp.userScenes.HomeUserController">
+
+    <!-- Left: Sidebar -->
+    <left>
+        <VBox alignment="TOP_CENTER" spacing="20" style="-fx-background-color: #2c3e50; -fx-padding: 20;">
+            <!-- Logo -->
+            <ImageView fitHeight="100" fitWidth="100">
+                <Image url="@user-icon.png" />
+            </ImageView>
+            <!-- Menu Items -->
+            <Button onAction="#onProfileButton" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;" text="Profilo" />
+            <Button onAction="#onViewCartButton" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;" text="Carrello" />
+            <Button onAction="#onOrderButton" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;" text="Ordini" />
+            <Button onAction="#onLogoutButton" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;" text="Logout" />
+        </VBox>
+    </left>
+
+    <!-- Center: Contenuto principale -->
+    <center>
+        <VBox prefHeight="626.0" prefWidth="562.0" spacing="20" style="-fx-padding: 20;">
+            <!-- Banner Offerta -->
+            <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #e74c3c; -fx-padding: 15; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <Label fx:id="offerBanner" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;" text="Non ci sono offerte oggi!" />
+            </HBox>
+
+            <!-- Ricerca -->
+            <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 10; -fx-background-color: #ecf0f1; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <TextField fx:id="searchField" promptText="Cerca un prodotto..." style="-fx-font-size: 14px; -fx-padding: 10; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-background-color: white;" HBox.hgrow="ALWAYS" />
+                <Button onAction="#onSearchButton" style="-fx-font-size: 14px; -fx-padding: 8 20; -fx-background-color: #3498db; -fx-text-fill: white; -fx-border-radius: 5; -fx-cursor: hand;" text="Cerca" />
+            </HBox>
+
+            <!-- Titolo -->
+            <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Prodotti Disponibili" />
+
+            <!-- Lista Prodotti -->
+            <ListView fx:id="productListView" prefHeight="300.0" style="-fx-border-color: #3498db; -fx-border-radius: 5; -fx-background-color: white;" />
+
+            <!-- Pulsante Aggiungi al Carrello -->
+            <Button mnemonicParsing="false" onAction="#onAddShoppingCartButton" style="-fx-font-size: 16px; -fx-padding: 10 20; -fx-background-color: #3498db; -fx-text-fill: white; -fx-border-radius: 5; -fx-cursor: hand;" text="Aggiungi al Carrello" />
+        </VBox>
+    </center>
+</BorderPane>

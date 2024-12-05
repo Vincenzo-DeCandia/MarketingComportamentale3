@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.market.newmarketapp.adminScenes.OfferModalController"
+      spacing="15" alignment="CENTER" style="-fx-padding: 20; -fx-background-color: #ecf0f1; -fx-border-radius: 15; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, #bdc3c7, 10, 0, 0, 5);" stylesheets="@css/style.css">
+
+    <!-- Titolo -->
+    <Label text="Gestione Offerte" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+    <!-- Selezione Categoria -->
+    <HBox spacing="15" alignment="CENTER" style="-fx-padding: 10 20;">
+        <Label text="Seleziona Categoria:" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+        <ComboBox fx:id="categoryComboBox" promptText="Categorie" styleClass="combo-box-container" />
+    </HBox>
+
+    <!-- ListView per i Prodotti -->
+    <VBox spacing="10" style="-fx-padding: 10;">
+        <Label text="Seleziona un prodotto:" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+        <ListView fx:id="productListView" prefHeight="150" styleClass="list-view" />
+    </VBox>
+
+    <!-- Campi di input per creare offerte -->
+    <VBox spacing="15" style="-fx-padding: 10;">
+        <TextField fx:id="offerName" promptText="Nome Offerta" styleClass="in-field" />
+        <TextField fx:id="offerDiscount" promptText="Sconto (%)" styleClass="in-field" />
+        <TextArea fx:id="offerDescription" promptText="Descrizione Offerta" styleClass="in-field" />
+        <DatePicker fx:id="offerStartDate" promptText="Inizio Offerta" styleClass="in-field" />
+        <DatePicker fx:id="offerEndDate" promptText="Fine Offerta" styleClass="in-field" />
+    </VBox>
+
+    <!-- TableView per visualizzare offerte esistenti -->
+    <VBox spacing="10" style="-fx-padding: 10;">
+        <Label text="Offerte Esistenti:" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+        <TableView fx:id="offerTableView" prefHeight="200" styleClass="user-table">
+            <columns>
+                <TableColumn fx:id="offerNameColumn" text="Nome Offerta" />
+                <TableColumn fx:id="offerDescriptionColumn" text="Descrizione offerta" />
+                <TableColumn fx:id="offerDiscountColumn" text="Sconto (%)" />
+                <TableColumn fx:id="offerStartDateColumn" text="Data Inizio" />
+                <TableColumn fx:id="offerEndDateColumn" text="Data Fine" />
+            </columns>
+        </TableView>
+    </VBox>
+
+    <!-- Pulsanti -->
+    <HBox spacing="15" alignment="CENTER" style="-fx-padding: 20 0;">
+        <Button text="Crea Offerta" onAction="#handleCreateOfferButton" styleClass="primary-button" />
+        <Button text="Elimina" onAction="#handleDeleteOfferButton" styleClass="button-decrement" />
+        <Button text="Chiudi" onAction="#closeModal" styleClass="secondary-button" />
+    </HBox>
+
+</VBox>

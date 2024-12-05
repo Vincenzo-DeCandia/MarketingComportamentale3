@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="main-container" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.market.newmarketapp.RegisterController">
+
+   <top>
+      <VBox alignment="CENTER" prefHeight="54.0" prefWidth="413.0" spacing="10.0">
+         <BorderPane prefHeight="33.0" prefWidth="560.0">
+            <center>
+               <Text styleClass="title-label" text="Registrazione" wrappingWidth="227.4765625" BorderPane.alignment="CENTER" />
+            </center>
+            <bottom>
+               <Text styleClass="subtitle-label" text="Crea il tuo account per accedere al sistema" BorderPane.alignment="CENTER" />
+            </bottom>
+            <left>
+               <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <VBox prefHeight="46.0" prefWidth="100.0" />
+                     <VBox prefHeight="56.0" prefWidth="100.0">
+                        <Button onAction="#onBackButton" prefHeight="38.0" prefWidth="99.0" styleClass="secondary-button" text="Indietro" />
+                     </VBox>
+                  </children>
+               </VBox>
+            </left>
+         </BorderPane>
+      </VBox>
+   </top>
+
+   <center>
+      <VBox alignment="CENTER" prefHeight="406.0" prefWidth="390.0" spacing="15.0" styleClass="form-container">
+         <!-- Email -->
+         <Label styleClass="form-label" text="Email" />
+         <TextField fx:id="emailField" promptText="Inserisci la tua email" styleClass="form-textfield" />
+
+         <!-- Password -->
+         <Label styleClass="form-label" text="Password" />
+         <PasswordField fx:id="passwordField" promptText="Inserisci la tua password" styleClass="form-textfield" />
+
+         <!-- Nome -->
+         <Label styleClass="form-label" text="Nome" />
+         <TextField fx:id="nameField" promptText="Inserisci il tuo nome" styleClass="form-textfield" />
+
+         <!-- Cognome -->
+         <Label styleClass="form-label" text="Cognome" />
+         <TextField fx:id="surnameField" promptText="Inserisci il tuo cognome" styleClass="form-textfield" />
+
+         <!-- Messaggio di errore o successo -->
+         <Label fx:id="messageLabel" styleClass="error-message" visible="false" />
+
+         <!-- Pulsante Registrati -->
+         <Button fx:id="registerButton" onAction="#registerButtonAction" styleClass="primary-button" text="Registrati" />
+      </VBox>
+   </center>
+   <left>
+      <VBox prefHeight="460.0" prefWidth="125.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <VBox prefHeight="406.0" prefWidth="131.0" BorderPane.alignment="CENTER" />
+   </right>
+
+</BorderPane>

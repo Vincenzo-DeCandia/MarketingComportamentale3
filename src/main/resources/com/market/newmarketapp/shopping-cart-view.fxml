@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="20" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.market.newmarketapp.userScenes.ShoppingCartController">
+    <HBox prefHeight="13.0" prefWidth="400.0">
+        <VBox prefHeight="38.0" prefWidth="147.0">
+            <Button mnemonicParsing="false" onAction="#onBackButton" styleClass="secondary-button" text="Indietro" />
+        </VBox>
+
+        <!-- Title -->
+        <Label prefHeight="50.0" prefWidth="91.0" styleClass="title-label" text="Carrello" />
+    </HBox>
+
+    <!-- ListView for Products -->
+    <ListView fx:id="shoppingCartList" prefHeight="300" prefWidth="400" styleClass="shopping-cart-list">
+        <!-- Optional Placeholder -->
+        <placeholder>
+            <Label styleClass="shopping-cart-placeholder" text="Your shopping cart is empty!" />
+        </placeholder>
+    </ListView>
+
+    <!-- Action Buttons -->
+    <HBox alignment="CENTER" spacing="15">
+        <Button onAction="#onAddQuantity" styleClass="button-add" text="+" />
+        <Button onAction="#onDecrementQuantity" styleClass="button-decrement" text="-" />
+        <Button onAction="#onRemoveSelected" styleClass="button-modify" text="Rimuovi" />
+        <Button onAction="#onCheckout" styleClass="button-checkout" text="Checkout" />
+    </HBox>
+
+</VBox>
