@@ -1,5 +1,6 @@
 package com.market.payment.factorymethod;
 
+import com.market.exception.ExceptionScene;
 import com.market.payment.paymentmethod.PaymentMethod;
 
 /**
@@ -21,13 +22,14 @@ public abstract class PaymentMethodCreator {
      * Handles the payment process by using the created {@link PaymentMethod} to make the payment.
      *
      * @param amount The amount to be paid.
-     * @return {@code true} if the payment was successful, {@code false} otherwise.
      */
-    public boolean pay(float amount) {
+    public void pay(float amount) throws Exception{
         // Create the payment method using the factory method
         PaymentMethod paymentMethod = createPaymentMethod();
         // Use the payment method to process the payment
-        return paymentMethod.pay(amount);
+        if (!paymentMethod.pay(amount)) {
+            throw new ExceptionScene("Payment failed");
+        }
     }
 }
 

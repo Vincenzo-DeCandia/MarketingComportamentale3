@@ -1,8 +1,7 @@
 package com.market.marketing.patternobserver.observed;
 
 import com.market.entity.Offer;
-import com.market.exception.ExceptionScene;
-import com.market.marketing.patternobserver.observer.OfferObserver;
+import com.market.marketing.patternobserver.observer.IObserver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
  * The OfferManager class manages the current offer and notifies attached observers about changes to the offer.
  */
 public class OfferManager {
-    private final List<OfferObserver> observers; // List of observers monitoring the offer changes
+    private final List<IObserver> observers; // List of observers monitoring the offer changes
     private Offer offer; // The current offer being managed
 
     /**
@@ -29,7 +28,7 @@ public class OfferManager {
      *
      * @param observer The observer to be added to the list.
      */
-    public void attach(OfferObserver observer) {
+    public void attach(IObserver observer) {
         observers.add(observer);
     }
 
@@ -39,7 +38,7 @@ public class OfferManager {
      *
      * @param observer The observer to be removed from the list.
      */
-    public void detach(OfferObserver observer) {
+    public void detach(IObserver observer) {
         observers.remove(observer);
     }
 
@@ -48,10 +47,10 @@ public class OfferManager {
      * This method calls the `update` method on each observer to notify them of any changes in the offer.
      */
     public void notifyObservers() {
-        for (OfferObserver observer : observers) {
+        for (IObserver observer : observers) {
             try {
-                observer.update();
-            } catch (ExceptionScene e) {
+                observer.update(offer);
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

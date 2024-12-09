@@ -30,6 +30,8 @@ public abstract class BaseUser implements Serializable {
     // User's last name
     private String surname;
 
+    private String phone;
+
     /**
      * Default constructor.
      */
@@ -190,6 +192,24 @@ public abstract class BaseUser implements Serializable {
     public void logout() {
         DataStorage dataStorage = new SessionDataStorage("session.txt");
         dataStorage.clear();
+    }
+
+    /**
+     * Gets the user's phone number
+     *
+     * @return the user's phone number
+     */
+    public String getPhone() {
+        return phone;
+    }
+
+    /**
+     * Gets the user's phone number
+     *
+     * @param phone the user's phone number
+     */
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
 

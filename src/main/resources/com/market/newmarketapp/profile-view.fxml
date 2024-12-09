@@ -37,6 +37,8 @@
             <TextField fx:id="emailTextField" disable="true" prefHeight="30.0" prefWidth="300.0" />
             <Label styleClass="label" text="Ruolo" />
             <TextField fx:id="roleTextField" disable="true" prefHeight="30.0" prefWidth="300.0" />
+            <Label styleClass="label" text="Telefono" />
+            <TextField fx:id="phoneTextField" disable="true" prefHeight="30.0" prefWidth="300.0" />
          </children>
       </VBox>
    </center>

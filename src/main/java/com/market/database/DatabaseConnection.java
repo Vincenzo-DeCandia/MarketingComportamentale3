@@ -13,5 +13,5 @@ public interface DatabaseConnection {
      * @return The database connection.
      * @throws Exception if a database access error occurs or the connection is unavailable.
      */
-    public Connection getConnection() throws Exception;
+    Connection getConnection() throws Exception;
 }

@@ -27,8 +27,7 @@ public class EmailNotificationObserver extends OfferObserver {
      * and prints out the email notification process.
      */
     @Override
-    public void update() throws ExceptionScene {
-        Offer offer = offerManager.getOffer();
+    public void update(Offer offer) throws ExceptionScene {
         System.out.println("Notification observer received: " + offer);
         UserRepository userRepository = new UserRepository();
         BaseUser user = userRepository.findById(offer.getIdUser());

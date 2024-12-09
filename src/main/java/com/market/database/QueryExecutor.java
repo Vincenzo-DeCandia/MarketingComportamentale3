@@ -18,7 +18,7 @@ public interface QueryExecutor<S> {
      * @return The result of the query execution, of type {@link S}.
      * @throws Exception if a database access error occurs.
      */
-    public S executeQuery(String query, List<Object> parameters) throws Exception;
+    S executeQuery(String query, List<Object> parameters) throws Exception;
 
     /**
      * Executes an INSERT, UPDATE, or DELETE query.
@@ -28,7 +28,7 @@ public interface QueryExecutor<S> {
      * @return The number of rows affected by the query.
      * @throws Exception if a database access error occurs.
      */
-    public int executeUpdate(String query, List<Object> parameters) throws Exception;
+    int executeUpdate(String query, List<Object> parameters) throws Exception;
 
     void changeConnection(Connection connection) throws Exception;
 }

@@ -19,8 +19,6 @@ import java.util.Map;
  */
 public class ShoppingCartRepository extends MySqlRepository<ShoppingCart, Pair<Integer, List<Integer>>> {
 
-    private final MySqlDatabaseFacade mySqlDatabaseFacade = new MySqlDatabaseFacade();
-
     /**
      * Finds a ShoppingCart for a specific user and a list of product IDs.
      * If a list of product IDs is provided, fetches products from the shopping cart for the user and specific products.
@@ -60,7 +58,7 @@ public class ShoppingCartRepository extends MySqlRepository<ShoppingCart, Pair<I
                 shoppingCart.addProduct(product);
 
                 // Fetch associated offers for the product
-                String query2 = "SELECT * FROM offer WHERE product_id_fk=? AND user_id_fk=?";
+                String query2 = "SELECT * FROM offer WHERE product_id_fk=? AND user_id_fk=? AND start_date <= curdate() AND end_date >= curdate()";
                 List<Map<String, Object>> rows = mySqlDatabaseFacade.fetchData(query2, product.getProductId(), idUserAndListIdProducts.getKey());
                 if (rows != null && !rows.isEmpty()) {
                     for (Map<String, Object> row : rows) {

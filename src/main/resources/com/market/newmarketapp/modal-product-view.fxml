@@ -2,17 +2,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.market.newmarketapp.adminScenes.ProductModalController" spacing="10" alignment="CENTER" style="-fx-padding: 20;">
-    <Label text="Gestione Prodotto" style="-fx-font-size: 16; -fx-font-weight: bold;" />
-    <TextField fx:id="productNameTextField" promptText="Nome Prodotto" />
-    <TextField fx:id="productPriceTextField" promptText="Prezzo Prodotto" />
-    <TextField fx:id="productQuantityTextField" promptText="Quantità Prodotto" />
-    <TextField fx:id="productCategoryTextField" promptText="Categoria Prodotto" />
-    <TextField fx:id="productCodeTextField" promptText="Codice Prodotto" />
-    <TextArea fx:id="productDescriptionTextArea" promptText="Descrizione Prodotto" />
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.market.newmarketapp.adminScenes.ProductModalController" spacing="10" alignment="CENTER" style="-fx-padding: 20;" stylesheets="@css/style.css">
+    <Label text="Gestione Prodotto" style="-fx-font-size: 16; -fx-font-weight: bold;" styleClass="title-label"/>
+    <TextField fx:id="productNameTextField" promptText="Nome Prodotto" styleClass="in-field" />
+    <TextField fx:id="productPriceTextField" promptText="Prezzo Prodotto" styleClass="in-field" />
+    <TextField fx:id="productQuantityTextField" promptText="Quantità Prodotto" styleClass="in-field" />
+    <TextField fx:id="productCategoryTextField" promptText="Categoria Prodotto" styleClass="in-field" />
+    <TextField fx:id="productCodeTextField" promptText="Codice Prodotto" styleClass="in-field" />
+    <TextArea fx:id="productDescriptionTextArea" promptText="Descrizione Prodotto" styleClass="in-field" />
     <HBox spacing="10" alignment="CENTER">
-        <Button text="Salva" onAction="#handleSaveButton" />
-        <Button text="Chiudi" onAction="#closeModal" />
+        <Button text="Salva" onAction="#handleSaveButton" styleClass="primary-button" />
+        <Button text="Chiudi" onAction="#closeModal" styleClass="secondary-button" />
     </HBox>
 </VBox>
 

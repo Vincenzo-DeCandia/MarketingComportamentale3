@@ -1,10 +1,12 @@
 package com.market.service;
 
+import com.market.exception.ExceptionScene;
+
 import java.sql.Date;
 
 /**
- * The IOfferService interface defines the contract for services responsible for creating and notifying offers.
- * Implementations of this interface should provide the logic for creating an offer and notifying relevant users.
+ * Service interface for managing offers.
+ * Provides methods for creating offers and notifying relevant users.
  */
 public interface IOfferService {
 
@@ -18,6 +20,7 @@ public interface IOfferService {
      * @param endDate The end date of the offer.
      * @param idUser The ID of the user who is creating the offer.
      * @param idProduct The ID of the product for which the offer is being created.
+     * @throws ExceptionScene if there are issues with creating the offer or notifying users.
      */
-    void createAndNotifyOffer(String name, String description, float discount, Date startDate, Date endDate, int idUser, int idProduct);
+    void createAndNotifyOffer(String name, String description, float discount, Date startDate, Date endDate, int idUser, int idProduct) throws ExceptionScene;
 }

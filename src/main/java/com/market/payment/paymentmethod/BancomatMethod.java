@@ -15,9 +15,10 @@ public class BancomatMethod implements PaymentMethod {
      * Constructor to initialize the Bancomat card details.
      *
      * @param cardNumber The card number.
-     * @param expiryDate The card expiry date.
+     * @param expiryDate The card expiry date (MM/YY format).
      * @param cvv The card CVV.
      * @param cardName The name on the card.
+     * @param address The billing address associated with the card.
      */
     public BancomatMethod(String cardNumber, String expiryDate, String cvv, String cardName, String address) {
         this.cardNumber = cardNumber;
@@ -35,8 +36,47 @@ public class BancomatMethod implements PaymentMethod {
      */
     @Override
     public boolean pay(float amount) {
-        // In a real scenario, payment processing logic would be here
+        // Simulate a Bancomat card payment process.
+        // Future logic could involve integration with payment gateways or APIs.
         return true;
     }
+
+    /**
+     * Gets the billing address associated with the card.
+     *
+     * @return The billing address.
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * Sets a new billing address.
+     *
+     * @param address The new billing address.
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /**
+     * Retrieves the cardholder's name.
+     *
+     * @return The name on the card.
+     */
+    public String getCardName() {
+        return cardName;
+    }
+
+    /**
+     * Sets a new cardholder name.
+     *
+     * @param cardName The new name to associate with the card.
+     */
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
+    }
+
 }
+
 

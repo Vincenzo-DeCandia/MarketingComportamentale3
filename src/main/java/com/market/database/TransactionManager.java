@@ -10,17 +10,17 @@ public interface TransactionManager {
     /**
      * Starts a new transaction.
      */
-    public void begin();
+    void begin();
 
     /**
      * Commits the current transaction, making all changes permanent.
      */
-    public void commit();
+    void commit();
 
     /**
      * Rolls back the current transaction, discarding any changes made.
      */
-    public void rollback();
+    void rollback();
 
     void changeConnection(Connection connection) throws Exception;
 }

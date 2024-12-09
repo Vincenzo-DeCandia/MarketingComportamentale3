@@ -11,16 +11,19 @@ public class CashCreator extends PaymentMethodCreator {
     private final CashMethod cashMethod;
 
     /**
-     * Constructor that initializes the {@link CashMethod} with fiscal code and email.
+     * Constructor that initializes the {@link CashMethod} with user details.
      *
-     * @param fiscalCode User's fiscal code.
-     * @param email User's email.
+     * @param name The name of the user.
+     * @param surname The surname of the user.
+     * @param address The address where the payment will be made.
      */
     public CashCreator(String name, String surname, String address) {
+        // Initialize the CashMethod instance with the provided details.
         cashMethod = new CashMethod(name, surname, address);
     }
 
     /**
+     * Factory Method implementation.
      * Creates and returns a {@link CashMethod}.
      *
      * @return A {@link CashMethod} instance.

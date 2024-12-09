@@ -1,10 +1,15 @@
 package com.market.newmarketapp.userScenes;
 
+import com.market.entity.Order;
 import com.market.entity.Product;
 import com.market.entity.ShoppingCart;
+import com.market.payment.factorymethod.BancomatCreator;
+import com.market.payment.factorymethod.CashCreator;
+import com.market.payment.factorymethod.CreditCardCreator;
+import com.market.payment.factorymethod.PaymentMethodCreator;
 import com.market.repository.IRepository;
+import com.market.repository.concreteRepository.OrderRepository;
 import com.market.repository.concreteRepository.ShoppingCartRepository;
-import com.market.service.PaymentService;
 import com.market.user.concreteuser.User;
 import com.market.user.singletonloggeduser.LoggedUserSingleton;
 import javafx.collections.FXCollections;
@@ -19,13 +24,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class PaymentModalController {
-    private final PaymentService paymentService;
 
     @FXML
     private VBox dynamicFieldsContainer;
@@ -84,9 +89,7 @@ public class PaymentModalController {
     @FXML
     private ChoiceBox<String> paymentTypeChoiceBox;
 
-    public PaymentModalController() {
-        paymentService = new PaymentService();
-    }
+    public PaymentModalController() {}
 
     @FXML
     protected void initialize() {
@@ -163,43 +166,44 @@ public class PaymentModalController {
 
     @FXML
     protected void handlePayButton(ActionEvent event) {
-        List<String> paymentData = new ArrayList<>();
-        switch (paymentTypeChoiceBox.getSelectionModel().getSelectedItem()) {
+        PaymentMethodCreator pm = switch (paymentTypeChoiceBox.getSelectionModel().getSelectedItem()) {
             case "Carta di credito":
-                paymentData.add(ccNumberTextField.getText());
-                paymentData.add(ccExpiryDateTextField.getText());
-                paymentData.add(ccCvvTextField.getText());
-                paymentData.add(ccAddressTextField.getText());
-                break;
+                yield new CreditCardCreator(ccNumberTextField.getText(), ccExpiryDateTextField.getText(), ccCvvTextField.getText(), ccAddressTextField.getText());
             case "Bancomat":
-                paymentData.add(bancomatNumberTextField.getText());
-                paymentData.add(bancomatExpiryDateTextField.getText());
-                paymentData.add(bancomatCvvTextField.getText());
-                paymentData.add(bancomatNameTextField.getText());
-                paymentData.add(addressTextField.getText());
-                break;
+                yield new BancomatCreator(bancomatNumberTextField.getText(), bancomatExpiryDateTextField.getText(), bancomatCvvTextField.getText(), bancomatNameTextField.getText(), addressTextField.getText());
             case "Contanti":
-                paymentData.add(cashNameTextField.getText());
-                paymentData.add(cashSurnameTextField.getText());
-                paymentData.add(cashAddressTextField.getText());
-                break;
+                yield new CashCreator(cashNameTextField.getText(), cashSurnameTextField.getText(), cashAddressTextField.getText());
             default:
                 throw new IllegalArgumentException();
-        }
+        };
 
         try {
-            paymentService.executePayment(paymentTypeChoiceBox.getValue(), Float.parseFloat(paymentAmount.getText()), paymentData);
+            pm.pay(Float.parseFloat(paymentAmount.getText()));
+            System.out.println("Pagamento andato a buon fine");
+
+            Order order = new Order(((User) LoggedUserSingleton.getInstance().getLoggedUser()).getShoppingCart().getProducts());
+            order.setTotalPrice(Float.parseFloat(paymentAmount.getText()));
+            order.setPaymentMethod(paymentTypeChoiceBox.getSelectionModel().getSelectedItem());
+            order.setStatus('P'); // 'P' indicates payment completed.
+            order.setDateOrder(Date.valueOf(LocalDate.now()));
+            order.setAddress(addressTextField.getText());
+            order.setUser(LoggedUserSingleton.getInstance().getLoggedUser());
+
+            // Save the order to the repository.
+            IRepository<Order, Integer> orderRepository = new OrderRepository();
+            orderRepository.save(order);
+
             IRepository<ShoppingCart, Pair<Integer, List<Integer>>> shoppingCartRepository = new ShoppingCartRepository();
             ShoppingCart shoppingCart = ((User) LoggedUserSingleton.getInstance().getLoggedUser()).getShoppingCart();
             for (Product product : shoppingCart.getProducts()) {
                 product.setProductQuantity(0);
             }
             shoppingCartRepository.delete(shoppingCart);
-
-
         } catch (Exception e) {
+            System.out.println("Pagamento fallito");
             e.printStackTrace();
         }
+
 
         ((Stage)dynamicFieldsContainer.getScene().getWindow()).close();
     }

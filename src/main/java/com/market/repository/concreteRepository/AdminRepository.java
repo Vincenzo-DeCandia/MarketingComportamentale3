@@ -95,6 +95,7 @@ public class AdminRepository extends MySqlRepository<Admin, Integer> implements 
                 admin.setName(row.get("staff_name").toString());
                 admin.setSurname(row.get("staff_surname").toString());
                 admin.setRole(row.get("staff_role").toString());
+                admin.setPhone(row.get("staff_phone").toString());
             }
         }
         return admin;

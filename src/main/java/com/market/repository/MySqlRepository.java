@@ -1,8 +1,7 @@
 package com.market.repository;
 
+import com.market.database.facade.IDatabase;
 import com.market.database.facade.MySqlDatabaseFacade;
-
-import java.util.List;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public abstract class MySqlRepository<T, S> implements IRepository<T, S> {
      * Facade for interacting with the MySQL database.
      * This can be used to perform custom queries or operations.
      */
-    protected final MySqlDatabaseFacade mySqlDatabaseFacade = new MySqlDatabaseFacade();
+    protected final IDatabase mySqlDatabaseFacade = new MySqlDatabaseFacade();
 
     /**
      * Finds an entity by its identifier.

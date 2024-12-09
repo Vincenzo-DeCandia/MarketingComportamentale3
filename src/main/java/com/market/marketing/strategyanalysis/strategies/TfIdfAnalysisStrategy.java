@@ -28,19 +28,19 @@ public class TfIdfAnalysisStrategy implements BehaviorAnalysisStrategy {
     public Map<BaseUser, String> analyze(Map<BaseUser, List<Order>> userOrders) {
         this.userOrders = userOrders;
 
-        // Initialize the Bag of Words (BoW) structure
+        // Step 1: Initialize the Bag of Words (BoW) structure to count occurrences and calculate raw frequencies
         initBow();
 
-        // Calculate term frequency (TF) for each user
+        // Step 2: Calculate term frequency (TF) for each user
         calculateTf();
 
-        // Calculate inverse document frequency (IDF) for each category
+        // Step 3: Calculate inverse document frequency (IDF) for each category
         calculateIdf();
 
-        // Calculate TF-IDF values
+        // Step 4: Calculate TF-IDF values
         calculateTfIdf();
 
-        // Identify and return the best category for each user
+        // Step 5: Identify and return the best category for each user based on TF-IDF scores
         return findBestCategory();
     }
 
@@ -75,11 +75,12 @@ public class TfIdfAnalysisStrategy implements BehaviorAnalysisStrategy {
 
             if (orders != null) {
                 for (Order order : orders) {
+                    // Iterate over products in the order
                     order.getProducts().forEach(product -> {
                         String category = product.getProductCategory();
-                        tf.putIfAbsent(category, 0.0);
+                        tf.putIfAbsent(category, 0.0); // Initialize frequency to 0 if not present
                         if (product.getProductQuantity() > 0) {
-                            tf.put(category, tf.get(category) + (double) product.getProductQuantity());
+                            tf.put(category, tf.get(category) + (double) product.getProductQuantity()); // Increment frequency
                         }
                     });
                 }
@@ -103,7 +104,7 @@ public class TfIdfAnalysisStrategy implements BehaviorAnalysisStrategy {
             Map<String, Double> tf = entry.getValue();
             int totalProducts = calculateTotalProducts(userOrders.get(entry.getKey()));
             if (totalProducts > 0) {
-                tf.replaceAll((category, count) -> count / totalProducts);
+                tf.replaceAll((category, count) -> count / totalProducts); // Normalize by total products
             }
         }
     }
@@ -113,12 +114,11 @@ public class TfIdfAnalysisStrategy implements BehaviorAnalysisStrategy {
      * that contain the category.
      */
     private void calculateIdf() {
-        int totalUsers = tfUser.size();
+        int totalUsers = tfUser.size(); // Total number of users/documents
         for (Map.Entry<String, Integer> entry : occurencesCategories.entrySet()) {
             String category = entry.getKey();
             int docCount = entry.getValue();
-            idfCategories.put(category, Math.log((double) totalUsers / docCount));
-            System.out.println("Log: " + Math.log((double) totalUsers / docCount));
+            idfCategories.put(category, Math.log10((double) totalUsers / docCount)); // Compute IDF
         }
     }
 
@@ -127,9 +127,9 @@ public class TfIdfAnalysisStrategy implements BehaviorAnalysisStrategy {
      * by the inverse document frequency (IDF).
      */
     private void calculateTfIdf() {
-        tfIdf = new HashMap<>(tfUser);
+        tfIdf = new HashMap<>(tfUser); // Clone TF map to store TF-IDF values
         for (Map.Entry<BaseUser, Map<String, Double>> entry : tfIdf.entrySet()) {
-            entry.getValue().replaceAll((category, tf) -> tf * idfCategories.get(category));
+            entry.getValue().replaceAll((category, tf) -> tf * idfCategories.get(category)); // Multiply TF by IDF
         }
     }
 
@@ -138,35 +138,17 @@ public class TfIdfAnalysisStrategy implements BehaviorAnalysisStrategy {
      *
      * @return A map of users to their most relevant category based on TF-IDF scores.
      */
-
-    /*
     private Map<BaseUser, String> findBestCategory() {
         Map<BaseUser, String> bestCategories = new HashMap<>();
         for (Map.Entry<BaseUser, Map<String, Double>> entry : tfIdf.entrySet()) {
-            if (entry.getValue().isEmpty()) {
-                bestCategories.put(entry.getKey(), "Sconosciuto");
-            } else {
-                String category = Collections.max(entry.getValue().entrySet(), Map.Entry.comparingByValue()).getKey();
-                bestCategories.put(entry.getKey(), category);
-            }
-
-        }
-        return bestCategories;
-    }
-
-     */
-
-    private Map<BaseUser, String> findBestCategory() {
-        Map<BaseUser, String> bestCategories = new HashMap<>();
-        for (Map.Entry<BaseUser, Map<String, Double>> entry : tfIdf.entrySet()) {
-            // Filtra i valori della mappa interna per includere solo quelli maggiori di 0
+            // Filter categories with a TF-IDF value greater than 0
             Map<String, Double> filteredMap = entry.getValue().entrySet().stream()
-                    .filter(e -> e.getValue() > 0)  // Mantieni solo voci con valore > 0
+                    .filter(e -> e.getValue() > 0)  // Keep only entries with value > 0
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
-            // Se la mappa filtrata non è vuota, trova la categoria con il valore massimo
+            // If the filtered map is not empty, find the category with the maximum value
             if (filteredMap.isEmpty()) {
-                bestCategories.put(entry.getKey(), "Sconosciuto");
+                bestCategories.put(entry.getKey(), "Sconosciuto"); // Default value for users without significant categories
             } else {
                 String category = Collections.max(filteredMap.entrySet(), Map.Entry.comparingByValue()).getKey();
                 bestCategories.put(entry.getKey(), category);
@@ -174,5 +156,5 @@ public class TfIdfAnalysisStrategy implements BehaviorAnalysisStrategy {
         }
         return bestCategories;
     }
-
 }
+

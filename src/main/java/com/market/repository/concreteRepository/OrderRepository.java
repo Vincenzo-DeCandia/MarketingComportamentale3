@@ -18,8 +18,6 @@ import java.util.Map;
  */
 public class OrderRepository extends MySqlRepository<Order, Integer> implements IOrderRepository<Order> {
 
-    private final MySqlDatabaseFacade mySqlDatabaseFacade = new MySqlDatabaseFacade();
-
     /**
      * Finds an Order by its unique identifier, along with its associated products.
      *
@@ -96,6 +94,11 @@ public class OrderRepository extends MySqlRepository<Order, Integer> implements 
         return mySqlDatabaseFacade.executeTransaction(queries);
     }
 
+    /**
+     * Retrieves all Orders from the database.
+     *
+     * @return A list of all Orders, or null if no orders are found.
+     */
     @Override
     public List<Order> findAll() {
         List<Order> orders = new ArrayList<>();

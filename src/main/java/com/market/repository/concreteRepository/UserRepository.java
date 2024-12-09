@@ -63,6 +63,7 @@ public class UserRepository extends MySqlRepository<User, Integer> implements IB
         user.setPassword(row.get("user_password").toString());
         user.setSurname(row.get("user_surname").toString());
         user.setRole(row.get("user_role").toString());
+        user.setPhone(row.get("user_phone").toString());
     }
 
     /**
@@ -74,13 +75,14 @@ public class UserRepository extends MySqlRepository<User, Integer> implements IB
     @Override
     public boolean save(User user) {
         Map<String, List<Object>> queries = new HashMap<>();
-        String query = "INSERT INTO user (user_id, user_name, user_surname, user_email, user_password, user_role) VALUES (0, ?, ?, ?, sha2(?,256), ?)";
+        String query = "INSERT INTO user (user_id, user_name, user_surname, user_email, user_password, user_role, user_phone) VALUES (0, ?, ?, ?, sha2(?,256), ?, ?)";
         List<Object> list = new ArrayList<>();
         list.add(user.getName());
         list.add(user.getSurname());
         list.add(user.getEmail());
         list.add(user.getPassword());
         list.add(user.getRole());
+        list.add(user.getPhone());
         queries.put(query, list);
         return mySqlDatabaseFacade.executeTransaction(queries);
     }
@@ -131,11 +133,18 @@ public class UserRepository extends MySqlRepository<User, Integer> implements IB
             user.setName((String) row.get("user_name"));
             user.setRole((String) row.get("user_role"));
             user.setSurname((String) row.get("user_surname"));
+            user.setPhone((String) row.get("user_phone"));
         }
 
         return user;
     }
 
+    /**
+     * Searches for users who have placed more than a specified number of orders.
+     *
+     * @param orderNumber The minimum number of orders.
+     * @return A list of users meeting the criteria, or null if no users are found.
+     */
     @Override
     public List<User> searchByOrderNumber(int orderNumber) {
         List<Map<String, Object>> rows = mySqlDatabaseFacade.fetchData("SELECT user_id, user_email, user_name, user_surname, user_role, COUNT(order_id) as num_order FROM user RIGHT JOIN `order` on user.user_id = `order`.user_id_fk GROUP BY user_id HAVING num_order > ?;", orderNumber);
@@ -147,11 +156,18 @@ public class UserRepository extends MySqlRepository<User, Integer> implements IB
             user.setName((String) row.get("user_name"));
             user.setRole((String) row.get("user_role"));
             user.setSurname((String) row.get("user_surname"));
+            user.setPhone((String) row.get("user_phone"));
             users.add(user);
         }
         return users.isEmpty() ? null : users;
     }
 
+    /**
+     * Helper method to map rows of query results to a list of User objects.
+     *
+     * @param rows The list of rows returned from the database query.
+     * @return A list of User objects, or null if no rows are present.
+     */
     @Nullable
     private List<User> getUsers(List<Map<String, Object>> rows) {
         List<User> users = null;
@@ -167,6 +183,12 @@ public class UserRepository extends MySqlRepository<User, Integer> implements IB
         return users;
     }
 
+    /**
+     * Retrieves a random subset of users.
+     *
+     * @param count The number of users to retrieve randomly.
+     * @return A list of randomly selected users.
+     */
     @Override
     public List<User> randomUser(int count) {
         List<Map<String, Object>> rows = mySqlDatabaseFacade.fetchData("SELECT * FROM user ORDER BY RAND() LIMIT ?", count);

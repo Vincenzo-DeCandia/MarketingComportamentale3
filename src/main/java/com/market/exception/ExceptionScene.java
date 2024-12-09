@@ -2,8 +2,6 @@ package com.market.exception;
 
 import javafx.scene.control.Alert;
 
-import javafx.scene.control.Alert;
-
 /**
  * Custom exception class for handling errors and displaying an error message using an alert.
  */

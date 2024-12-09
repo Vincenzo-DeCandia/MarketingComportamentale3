@@ -1,7 +1,7 @@
 package com.market.payment.paymentmethod;
 
 /**
- * {@link PaymentMethod} implementation for cash payments.
+ * Class representing a cash payment method.
  */
 public class CashMethod implements PaymentMethod {
     private String name;
@@ -11,8 +11,9 @@ public class CashMethod implements PaymentMethod {
     /**
      * Constructor to initialize the Cash payment details.
      *
-     * @param fiscalCode The user's fiscal code.
-     * @param email The user's email.
+     * @param name The user's name.
+     * @param surname The user's surname.
+     * @param address The user's address where payment is associated.
      */
     public CashMethod(String name, String surname, String address) {
         this.name = name;
@@ -28,7 +29,36 @@ public class CashMethod implements PaymentMethod {
      */
     @Override
     public boolean pay(float amount) {
-        // In a real scenario, cash payment processing logic would be here
+        // Simulates a successful cash payment.
+        // Future logic could include generating a receipt or recording the transaction.
         return true;
     }
+
+    /**
+     * Get the payer's full name.
+     *
+     * @return A string representing the full name of the payer.
+     */
+    public String getFullName() {
+        return name + " " + surname;
+    }
+
+    /**
+     * Gets the address associated with the cash payment.
+     *
+     * @return The address.
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * Sets the address for the payment.
+     *
+     * @param address The new address.
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }
+

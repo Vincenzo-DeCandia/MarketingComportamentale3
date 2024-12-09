@@ -16,8 +16,6 @@ import java.util.Map;
  */
 public class ProductRepository extends MySqlRepository<Product, Integer> implements IProductRepository<Product> {
 
-    private final MySqlDatabaseFacade mySqlDatabaseFacade = new MySqlDatabaseFacade();
-
     /**
      * Finds a Product by its unique identifier.
      *

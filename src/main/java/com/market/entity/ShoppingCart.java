@@ -93,6 +93,7 @@ public class ShoppingCart implements Serializable {
             for (Offer o : this.productOffers) {
                 if (o.getIdProduct() == p.getProductId()) {
                     price -= (o.getDiscount() / 100.0f) * price;
+                    break;
                 }
             }
             total += p.getProductQuantity() * price;

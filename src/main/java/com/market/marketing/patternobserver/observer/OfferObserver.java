@@ -1,9 +1,10 @@
 package com.market.marketing.patternobserver.observer;
 
+import com.market.entity.Offer;
 import com.market.exception.ExceptionScene;
 import com.market.marketing.patternobserver.observed.OfferManager;
 
-public abstract class OfferObserver {
+public abstract class OfferObserver implements IObserver {
     protected OfferManager offerManager; // The OfferManager that this observer is attached to
 
     /**
@@ -24,5 +25,5 @@ public abstract class OfferObserver {
      * This method is called when the offer is updated, allowing the observer to react to the change.
      * Concrete implementations should define how to handle the offer update.
      */
-    public abstract void update() throws ExceptionScene;
+    public abstract void update(Offer offer) throws ExceptionScene;
 }

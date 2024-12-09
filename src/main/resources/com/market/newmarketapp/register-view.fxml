@@ -47,6 +47,9 @@
          <Label styleClass="form-label" text="Cognome" />
          <TextField fx:id="surnameField" promptText="Inserisci il tuo cognome" styleClass="form-textfield" />
 
+         <Label styleClass="form-label" text="Telefono" />
+         <TextField fx:id="phoneField" promptText="Inserisci il tuo numero di telefono" styleClass="form-textfield" />
+
          <!-- Messaggio di errore o successo -->
          <Label fx:id="messageLabel" styleClass="error-message" visible="false" />
 

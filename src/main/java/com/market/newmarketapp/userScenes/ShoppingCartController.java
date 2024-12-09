@@ -92,7 +92,7 @@ public class ShoppingCartController extends Controller {
                 else {
                     Offer offerProduct;
                     float price = product.getProductPrice();
-                    if (offerList != null || !offerList.isEmpty()) {
+                    if (offerList != null && !offerList.isEmpty()) {
                         for (Offer offer : offerList) {
                             if (offer.getIdProduct() == product.getProductId()) {
                                 offerProduct = offer;
@@ -100,7 +100,7 @@ public class ShoppingCartController extends Controller {
                             }
                         }
                     }
-                    setText(product.getProductName() + " - " + "Quantità: " + product.getProductQuantity() + " - Prezzo: " + (int)(price * 100) / 100.0f + " €");
+                    setText(product.getProductName() + " - " + "Quantità: " + product.getProductQuantity() + " - Prezzo: " + ((int)(price * 100) / 100.0f)*(product.getProductQuantity()) + " €");
                 }
             }
         });

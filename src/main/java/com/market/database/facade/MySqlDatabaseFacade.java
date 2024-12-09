@@ -12,9 +12,9 @@ import java.util.*;
 
 /**
  * Facade for simplifying interactions with the MySQL database.
- * Provides a unified interface to manage database connections, queries, and transactions.
+ * Manage database connections, queries, and transactions.
  */
-public class MySqlDatabaseFacade {
+public class MySqlDatabaseFacade implements IDatabase {
     private DatabaseConnection databaseConnection;
     private QueryExecutor<List<Map<String, Object>>> queryExecutor;
     private TransactionManager transactionManager;
@@ -82,7 +82,7 @@ public class MySqlDatabaseFacade {
     /**
      * Closes the database connection.
      */
-    public void close() {
+    private void close() {
         try {
             if (!databaseConnection.getConnection().isClosed()) {
                 databaseConnection.getConnection().close();

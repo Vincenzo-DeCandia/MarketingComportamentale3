@@ -11,5 +11,5 @@ public interface PaymentMethod {
      * @param amount The amount to be paid.
      * @return {@code true} if the payment is successful, {@code false} otherwise.
      */
-    public boolean pay(float amount);
+    boolean pay(float amount);
 }

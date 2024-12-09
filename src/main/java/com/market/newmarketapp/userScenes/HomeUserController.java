@@ -215,10 +215,12 @@ public class HomeUserController extends Controller {
                 else {
                     Offer offerProduct = null;
                     float price = product.getProductPrice();
-                    for (Offer offer : offerList) {
-                        if (offer.getIdProduct() == product.getProductId()) {
-                            offerProduct = offer;
-                            price = price - offerProduct.getDiscount() * price / 100;
+                    if (offerList != null) {
+                        for (Offer offer : offerList) {
+                            if (offer.getIdProduct() == product.getProductId()) {
+                                offerProduct = offer;
+                                price = price - offerProduct.getDiscount() * price / 100;
+                            }
                         }
                     }
                     if (offerProduct != null) {

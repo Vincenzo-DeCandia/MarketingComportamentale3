@@ -22,5 +22,5 @@ public interface IUserAnalysisService {
      * @param listUsers The list of users to be analyzed.
      * @return A map where the key is a user (BaseUser) and the value is a string containing the result of the analysis.
      */
-    public Map<BaseUser, String> analyzeUser(List<BaseUser> listUsers);
+    Map<BaseUser, String> analyzeUser(List<BaseUser> listUsers);
 }

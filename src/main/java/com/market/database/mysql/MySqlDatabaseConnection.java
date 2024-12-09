@@ -45,11 +45,7 @@ public class MySqlDatabaseConnection implements DatabaseConnection {
      */
     public static MySqlDatabaseConnection getInstance() throws SQLException {
         if (instance == null) {
-            synchronized (MySqlDatabaseConnection.class) { // Synchronize only for the first initialization.
-                if (instance == null) {
-                    instance = new MySqlDatabaseConnection();
-                }
-            }
+            instance = new MySqlDatabaseConnection();
         }
         return instance;
     }
